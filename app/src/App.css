@@ -1,42 +1,25 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Making sure the 'animated' element stays inline and behaves with the corresponding element. */
+.underline-animation {
+  position: relative;
+  display: inline-block;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* The animation */
+.underline-animation::after {
+  content: ''; /* Creating empty element. */
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0); /* Making the underline width 0 so it's invisible to us. */
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform-origin: bottom right; /* Sets the underline animation position to the other corner. */
+  transition: transform 0.25s ease-out;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+/* When cursor is hovering */
+.underline-animation:hover::after {
+  transform: scaleX(1); /* Width is then set to 1. */
+  transform-origin: bottom left; /* Makes it so the animation starts on the left. */
 }
