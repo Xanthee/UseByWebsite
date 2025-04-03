@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="w-screen flex flex-col h-full">
 
-        <nav className="sticky top-0 text-white pl-12 pr-12 pt-4 pb-4 flex flex-row w-full z-50 bg-purple-600">
+        <nav className="sticky top-0 text-white pl-12 pr-12 pt-4 pb-4 flex flex-row w-screen z-50 bg-purple-600">
         <h1 className="text-4xl font-bold w-1/4">UseBy</h1>
         <div className="flex justify-between w-3/4 font-light text-2xl">
           <button className="text-white mr-4 hover:scale-110 hover:text-purple-950 hover:-translate-y-1 transition-all duration-200 ease-in-out" onClick={() => scrollToSection(anchor1)}>The Problem</button>
@@ -67,13 +67,13 @@ function App() {
         <div className="bg-blue-500 h-full w-1/2">
         </div>
         <div className="w-1/2 p-4">        
-          <h1 className="text-4xl font-bold mb-8">Living with housemates? Tired of finding moldy bread or arguing over whose milk went bad? We’ve been there.</h1>
-          <h3 className="text-1xl">Forgotten food goes bad, fridge space turns into a mystery, and no one knows what’s fair game. Our app keeps track of it all—so you can stop guessing and start sharing.</h3>
+          <h1 className="text-4xl font-bold font-hedvig mb-8">Living with housemates? Tired of finding moldy bread or arguing over whose milk went bad? We’ve been there.</h1>
+          <h3 className="text-1xl font-hostGrotesks">Forgotten food goes bad, fridge space turns into a mystery, and no one knows what’s fair game. Our app keeps track of it all—so you can stop guessing and start sharing.</h3>
           <button onClick={() => scrollToSection(anchor3)} >Find out more</button>
         </div>
       </div>
 
-      <div ref={anchor2} className="flex flex-row justify-evenly h-[80vh] p-12">
+      <div ref={anchor2} className="flex flex-row justify-evenly h-[80vh] p-12 mb-12">
         <div className="relative m-4 w-3/12 h-full bg-cover bg-center">
           <div className="absolute inset-0 bg-black opacity-50"></div>
             <div className="relative z-10 flex flex-col items-start justify-end w-3/4 h-full p-6 pb-16">
@@ -97,24 +97,24 @@ function App() {
           
 
 
-            <div ref={anchor3} className="flex justify-around p-12">
+            <div ref={anchor3} className="flex justify-evenly p-12">
               {[
                 "Step 1",
                 "Step 2",
                 "Step 3",
                 "Step 4"
               ].map((label, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentStep(index + 1)}
-                  className={`px-4 py-2 text-xl transition-colors ${
-                    currentStep === index + 1
-                      ? 'bg-purple-500 text-white'
-                      : 'bg-gray-200 text-black hover:bg-purple-300'
-                  }`}
-                >
-                  {label}
-                </button>
+              <button
+                key={index}
+                onClick={() => setCurrentStep(index + 1)}
+                className={`px-4 py-2 text-xl transition-all duration-300 ${
+                  currentStep === index + 1
+                    ? 'bg-purple-500 text-white scale-150'
+                    : 'bg-gray-200 text-black hover:bg-purple-300 scale-100'
+                }`}
+              >
+                {label}
+              </button>
               ))}
             </div>
 
@@ -127,7 +127,7 @@ function App() {
               </span>
             </div>
 
-      <div className="bg-white text-black h-[80vh] p-12 flex flex-row justify-evenly">
+      <div className="mt-12 bg-white text-black h-[80vh] p-12 flex flex-row justify-evenly">
         <div className="w-1/2 p-4">        
           <h1 className="text-4xl font-extrabold font-hedvig mb-8">Built by Students, for Students</h1>
           <h3 className="text-1xl font-hostGrotesks">We’re four university students who’ve lived the shared-house struggle—expired yogurt, mystery leftovers, and the eternal ‘whose is this?’ debate. So, we made an app to fix it. From late-night coding sessions to testing with our own messy fridges, we’ve built something to help students like us save food, save money, and keep the peace with housemates.</h3>
