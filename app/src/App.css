@@ -1,3 +1,18 @@
+
+
+/* Optional: Scroll-snap for full-section visibility */
+html {
+  scroll-behavior: smooth;
+}
+
+.w-screen {
+  scroll-snap-type: y proximity;
+}
+
+.min-h-\[80vh\], .min-h-\[65vh\] {
+  scroll-snap-align: start;
+}
+
 /* Making sure the 'animated' element stays inline and behaves with the corresponding element. */
 .underline-animation {
   position: relative;
