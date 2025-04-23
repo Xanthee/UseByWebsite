@@ -137,6 +137,7 @@ function App() {
         ))}
       </div>
 
+<<<<<<< Updated upstream
       <div className="bg-gray-100 min-h-[40vh] flex items-center justify-center">
         <span className="text-2xl sm:text-4xl font-bold">
           {currentStep === 1 && 'Add your food.'}
@@ -156,6 +157,42 @@ function App() {
             with our own messy fridges, we’ve built something to help students like us save food, save money, and keep the
             peace with housemates.
           </h3>
+=======
+            <div ref={anchor3} className="flex justify-around p-12 mt-12">
+              {[
+                "Step 1",
+                "Step 2",
+                "Step 3",
+                "Step 4"
+              ].map((label, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentStep(index + 1)}
+                  className={`px-4 py-2 text-xl transition-colors ${
+                    currentStep === index + 1
+                      ? 'bg-purple-500 text-white'
+                      : 'bg-gray-200 text-black hover:bg-purple-300'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+
+            <div className="bg-gray-100 h-[65vh] flex items-center justify-center mb-12">
+              <span className="text-4xl font-bold">
+                {currentStep === 1 && "Add your food."}
+                {currentStep === 2 && "Set the date."}
+                {currentStep === 3 && "Share with mates."}
+                {currentStep === 4 && "Get notified."}
+              </span>
+            </div>
+
+      <div className="bg-white text-black h-[80vh] p-12 flex flex-row justify-evenly">
+        <div className="w-1/2 p-4">        
+          <h1 className="text-4xl font-extrabold font-hedvig mb-8">Built by Students, for Students</h1>
+          <h3 className="text-1xl font-hostGrotesks">We’re four university students who’ve lived the shared-house struggle—expired yogurt, mystery leftovers, and the eternal ‘whose is this?’ debate. So, we made an app to fix it. From late-night coding sessions to testing with our own messy fridges, we’ve built something to help students like us save food, save money, and keep the peace with housemates.</h3>
+>>>>>>> Stashed changes
         </div>
         <div className="bg-blue-500 h-48 sm:h-auto w-full sm:w-1/2 mt-4 sm:mt-0"></div>
       </div>
