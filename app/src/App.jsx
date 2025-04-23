@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-scroll';
+import logo from './assets/logo.png'; // Import the image
 
 function App() {
   const anchor1 = useRef(null);
@@ -16,7 +17,7 @@ function App() {
 
   return (
     <div className="w-full flex flex-col h-full m-0 p-0 overflow-x-hidden">
-      {/* Navbar: Adjusted font sizes, flex wrapping, and spacing for small screens */}
+      {/* Navbar */}
       <nav className="sticky top-0 text-white px-4 py-3 flex flex-col sm:flex-row sm:items-center z-50 bg-purple-600">
         <h1 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-0 sm:w-1/4">UseBy</h1>
         <div className="flex flex-wrap justify-center sm:justify-end sm:w-3/4 gap-2 sm:gap-4">
@@ -47,7 +48,7 @@ function App() {
         </div>
       </nav>
 
-      {/* Hero Section: Responsive font sizes and padding */}
+      {/* Hero Section */}
       <div className="text-white px-4 sm:px-12 py-12 sm:pt-24 sm:pb-32 flex flex-col bg-purple-600 min-h-[60vh]">
         <h1 className="text-4xl sm:text-6xl font-bold font-hedveg mb-4">Keep It Fresh, Together</h1>
         <h2 className="text-xl sm:text-3xl font-light">Track and share food expiry dates effortlessly with your housemates.</h2>
@@ -80,7 +81,7 @@ function App() {
         </button>
       </div>
 
-      {/* Problem Section: Stack on small screens */}
+      {/* Problem Section */}
       <div className="bg-white text-black min-h-[60vh] p-6 sm:p-12 flex flex-col sm:flex-row justify-evenly">
         <div className="bg-blue-500 h-48 sm:h-auto w-full sm:w-1/2 mb-4 sm:mb-0"></div>
         <div className="w-full sm:w-1/2 p-4">
@@ -100,27 +101,27 @@ function App() {
         </div>
       </div>
 
-      {/* Solution Section: Responsive grid */}
+      {/* Solution Section */}
       <div ref={anchor2} className="flex flex-col sm:flex-row justify-evenly min-h-[80vh] p-6 sm:p-12 mb-8 gap-4">
-  {[
-    { text: 'Track expiry dates with notifications.', image: '/path/to/image1.jpg' },
-    { text: 'Share lists with housemates.', image: '/path/to/image2.jpg' },
-    { text: 'Mark food as “up for grabs.”', image: '/path/to/image3.jpg' },
-  ].map((item, index) => (
-    <div
-      key={index}
-      className="relative m-2 w-full sm:w-1/3 h-[400px] sm:h-[600px] bg-cover bg-center rounded-lg overflow-hidden"
-      style={{ backgroundImage: `url(${item.image})` }}
-    >
-      <div className="absolute inset-0 bg-black opacity-50"></div>
-      <div className="relative z-10 flex flex-col items-start justify-end w-full h-full p-4 sm:p-6">
-        <h1 className="text-xl sm:text-2xl font-semibold text-white leading-snug">{item.text}</h1>
+        {[
+          { text: 'Track expiry dates with notifications.', image: '/path/to/image1.jpg' },
+          { text: 'Share lists with housemates.', image: '/path/to/image2.jpg' },
+          { text: 'Mark food as “up for grabs.”', image: '/path/to/image3.jpg' },
+        ].map((item, index) => (
+          <div
+            key={index}
+            className="relative m-2 w-full sm:w-1/3 h-[400px] sm:h-[600px] bg-cover bg-center rounded-lg overflow-hidden"
+            style={{ backgroundImage: `url(${item.image})` }}
+          >
+            <div className="absolute inset-0 bg-black opacity-50"></div>
+            <div className="relative z-10 flex flex-col items-start justify-end w-full h-full p-4 sm:p-6">
+              <h1 className="text-xl sm:text-2xl font-semibold text-white leading-snug">{item.text}</h1>
+            </div>
+          </div>
+        ))}
       </div>
-    </div>
-  ))}
-</div>
 
-      {/* How to Use Section: Smaller buttons and text */}
+      {/* How to Use Section */}
       <div ref={anchor3} className="flex justify-evenly p-6 sm:p-12">
         {['Step 1', 'Step 2', 'Step 3', 'Step 4'].map((label, index) => (
           <button
@@ -137,7 +138,6 @@ function App() {
         ))}
       </div>
 
-<<<<<<< Updated upstream
       <div className="bg-gray-100 min-h-[40vh] flex items-center justify-center">
         <span className="text-2xl sm:text-4xl font-bold">
           {currentStep === 1 && 'Add your food.'}
@@ -147,8 +147,8 @@ function App() {
         </span>
       </div>
 
-      {/* Who We Are Section: Stack on small screens */}
-      <div className="mt-8 bg-white text-black min-h-[60vh] p-6 sm:p-12 flex flex-col sm:flex-row justify-evenly">
+      {/* Who We Are Section */}
+      <div ref={anchor4} className="mt-8 bg-white text-black min-h-[60vh] p-6 sm:p-12 flex flex-col sm:flex-row justify-evenly">
         <div className="w-full sm:w-1/2 p-4">
           <h1 className="text-2xl sm:text-4xl font-extrabold font-hedvig mb-6">Built by Students, for Students</h1>
           <h3 className="text-sm sm:text-base font-hostGrotesks">
@@ -157,59 +157,23 @@ function App() {
             with our own messy fridges, we’ve built something to help students like us save food, save money, and keep the
             peace with housemates.
           </h3>
-=======
-            <div ref={anchor3} className="flex justify-around p-12 mt-12">
-              {[
-                "Step 1",
-                "Step 2",
-                "Step 3",
-                "Step 4"
-              ].map((label, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentStep(index + 1)}
-                  className={`px-4 py-2 text-xl transition-colors ${
-                    currentStep === index + 1
-                      ? 'bg-purple-500 text-white'
-                      : 'bg-gray-200 text-black hover:bg-purple-300'
-                  }`}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-
-            <div className="bg-gray-100 h-[65vh] flex items-center justify-center mb-12">
-              <span className="text-4xl font-bold">
-                {currentStep === 1 && "Add your food."}
-                {currentStep === 2 && "Set the date."}
-                {currentStep === 3 && "Share with mates."}
-                {currentStep === 4 && "Get notified."}
-              </span>
-            </div>
-
-      <div className="bg-white text-black h-[80vh] p-12 flex flex-row justify-evenly">
-        <div className="w-1/2 p-4">        
-          <h1 className="text-4xl font-extrabold font-hedvig mb-8">Built by Students, for Students</h1>
-          <h3 className="text-1xl font-hostGrotesks">We’re four university students who’ve lived the shared-house struggle—expired yogurt, mystery leftovers, and the eternal ‘whose is this?’ debate. So, we made an app to fix it. From late-night coding sessions to testing with our own messy fridges, we’ve built something to help students like us save food, save money, and keep the peace with housemates.</h3>
->>>>>>> Stashed changes
         </div>
         <div className="bg-blue-500 h-48 sm:h-auto w-full sm:w-1/2 mt-4 sm:mt-0"></div>
       </div>
 
-      {/* Footer: Centered and responsive */}
-      <footer className="bg-gray-800 text-white p-6">
+      {/* Footer */}
+      <footer style={{ backgroundColor: '#d9dbd9' }} className="text-grey p-6">
         <div className="w-full px-4 flex flex-col items-center">
-          <img src="/logo" alt="Logo" className="h-8 sm:h-10 w-auto mb-2" />
-          <p className="text-xs sm:text-sm text-gray-400 mb-4">Keep it fresh, together</p>
+          <img src={logo} alt="Logo" className="h-8 sm:h-10 w-auto mb-2" />        
+          <p className="text-xs sm:text-sm text-gray-700 mb-4">Keep it fresh, together</p>
           <div className="flex space-x-4 mb-2">
-            <a href="https://twitter.com" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm sm:text-base">
+            <a href="https://www.tiktok.com/@usebyappofficial?is_from_webapp=1&sender_device=pc" className="text-gray-700 hover:text-purple-600 transition-colors duration-200 text-sm sm:text-base">
               TikTok
             </a>
-            <a href="https://instagram.com" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm sm:text-base">
+            <a href="https://www.instagram.com/usebyappofficial/" className="text-gray-700 hover:text-purple-600 transition-colors duration-200 text-sm sm:text-base">
               Instagram
             </a>
-            <a href="mailto:contact@example.com" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm sm:text-base">
+            <a href="mailto:contact@example.com" className="text-gray-700 hover:text-purple-600 transition-colors duration-200 text-sm sm:text-base">
               Email
             </a>
           </div>
