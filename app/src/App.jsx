@@ -1,7 +1,6 @@
 import './App.css';
 import React, { useRef, useState } from 'react';
-import { Link } from 'react-scroll';
-import logo from './assets/logo.png'; // Import the image
+import logo from './assets/logo.png';
 
 function App() {
   const anchor1 = useRef(null);
@@ -19,28 +18,28 @@ function App() {
     <div className="w-full flex flex-col h-full m-0 p-0 overflow-x-hidden">
       {/* Navbar */}
       <nav className="sticky top-0 text-white px-4 py-3 flex flex-col sm:flex-row sm:items-center z-50 bg-purple-600">
-        <h1 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-0 sm:w-1/4">UseBy</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-0 sm:w-1/4">UseBy</h1>
         <div className="flex flex-wrap justify-center sm:justify-end sm:w-3/4 gap-2 sm:gap-4">
           <button
-            className="text-sm sm:text-lg md:text-xl hover:scale-105 hover:text-purple-950 hover:-translate-y-1 transition-all duration-200 ease-in-out"
+            className="text-xl sm:text-2xl md:text-3xl hover:scale-105 hover:text-purple-950 hover:-translate-y-1 transition-all duration-200 ease-in-out"
             onClick={() => scrollToSection(anchor1)}
           >
             The Problem
           </button>
           <button
-            className="text-sm sm:text-lg hover:scale-105 hover:text-purple-950 hover:-translate-y-1 transition-all duration-200 ease-in-out"
+            className="text-xl sm:text-2xl md:text-3xl hover:scale-105 hover:text-purple-950 hover:-translate-y-1 transition-all duration-200 ease-in-out"
             onClick={() => scrollToSection(anchor2)}
           >
             The Solution
           </button>
           <button
-            className="text-sm sm:text-lg hover:scale-105 hover:text-purple-950 hover:-translate-y-1 transition-all duration-200 ease-in-out"
+            className="text-xl sm:text-2xl md:text-3xl hover:scale-105 hover:text-purple-950 hover:-translate-y-1 transition-all duration-200 ease-in-out"
             onClick={() => scrollToSection(anchor3)}
           >
             How to Use
           </button>
           <button
-            className="text-sm sm:text-lg hover:scale-105 hover:text-purple-950 hover:-translate-y-1 transition-all duration-200 ease-in-out"
+            className="text-xl sm:text-2xl md:text-3xls hover:scale-105 hover:text-purple-950 hover:-translate-y-1 transition-all duration-200 ease-in-out"
             onClick={() => scrollToSection(anchor4)}
           >
             Who We Are
@@ -60,7 +59,6 @@ function App() {
             It's only 1 click away.
           </h4>
         </div>
-        <p className="absolute bottom-8" ref={anchor1}></p>
       </div>
 
       {/* Scroll Indicator */}
@@ -82,11 +80,11 @@ function App() {
       </div>
 
       {/* Problem Section */}
-      <div className="bg-white text-black min-h-[60vh] p-6 sm:p-12 flex flex-col sm:flex-row justify-evenly">
+      <div  ref={anchor1} className="bg-white text-black min-h-[60vh] p-6 sm:p-12 flex flex-col sm:flex-row justify-evenly">
         <div className="bg-blue-500 h-48 sm:h-auto w-full sm:w-1/2 mb-4 sm:mb-0"></div>
         <div className="w-full sm:w-1/2 p-4">
-          <h1 className="text-2xl sm:text-4xl font-bold font-hedvig mb-6">
-            Living with housemates? Tired of finding moldy bread or arguing over whose milk went bad? We’ve been there.
+          <h1 className="text-2xl sm:text-4xl text-[#520982] font-bold font-hedvig mb-6">
+            Housemates? Sick of moldy bread or milk disputes? We get it.
           </h1>
           <h3 className="text-sm sm:text-base font-hostGrotesks">
             Forgotten food goes bad, fridge space turns into a mystery, and no one knows what’s fair game. Our app keeps
@@ -94,7 +92,7 @@ function App() {
           </h3>
           <button
             onClick={() => scrollToSection(anchor3)}
-            className="mt-4 text-sm sm:text-base bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600"
+            className="mt-6 text-sm sm:text-base bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600"
           >
             Find out more
           </button>
@@ -115,7 +113,7 @@ function App() {
           >
             <div className="absolute inset-0 bg-black opacity-50"></div>
             <div className="relative z-10 flex flex-col items-start justify-end w-full h-full p-4 sm:p-6">
-              <h1 className="text-xl sm:text-2xl font-semibold text-white leading-snug">{item.text}</h1>
+              <h1 className="text-4xl sm:text-4xl font-semibold text-white leading-snug">{item.text}</h1>
             </div>
           </div>
         ))}
@@ -139,7 +137,7 @@ function App() {
       </div>
 
       <div className="bg-gray-100 min-h-[40vh] flex items-center justify-center">
-        <span className="text-2xl sm:text-4xl font-bold">
+        <span className="text-2xl sm:text-4xl font-bold text-[#520982]">
           {currentStep === 1 && 'Add your food.'}
           {currentStep === 2 && 'Set the date.'}
           {currentStep === 3 && 'Share with mates.'}
@@ -150,7 +148,7 @@ function App() {
       {/* Who We Are Section */}
       <div ref={anchor4} className="mt-8 bg-white text-black min-h-[60vh] p-6 sm:p-12 flex flex-col sm:flex-row justify-evenly">
         <div className="w-full sm:w-1/2 p-4">
-          <h1 className="text-2xl sm:text-4xl font-extrabold font-hedvig mb-6">Built by Students, for Students</h1>
+          <h1 className="text-2xl sm:text-4xl text-[#520982] font-extrabold font-hedvig mb-6">Built by Students, for Students</h1>
           <h3 className="text-sm sm:text-base font-hostGrotesks">
             We’re four university students who’ve lived the shared-house struggle—expired yogurt, mystery leftovers, and
             the eternal ‘whose is this?’ debate. So, we made an app to fix it. From late-night coding sessions to testing
