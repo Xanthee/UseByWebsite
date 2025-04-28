@@ -1,6 +1,8 @@
 import './App.css';
 import React, { useRef, useState } from 'react';
 import logo from './assets/logo.png';
+import team from './assets/team.svg';
+import group from './assets/group.svg';
 
 function App() {
   const anchor1 = useRef(null);
@@ -16,6 +18,7 @@ function App() {
 
   return (
     <div className="w-full flex flex-col h-full m-0 p-0 overflow-x-hidden">
+      
       {/* Navbar */}
       <nav className="sticky top-0 text-white px-4 py-3 flex flex-col sm:flex-row sm:items-center z-50 bg-purple-600">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-0 sm:w-1/4">UseBy</h1>
@@ -81,12 +84,14 @@ function App() {
 
       {/* Problem Section */}
       <div  ref={anchor1} className="bg-white text-black min-h-[60vh] p-6 sm:p-12 flex flex-col sm:flex-row justify-evenly">
-        <div className="bg-blue-500 h-48 sm:h-auto w-full sm:w-1/2 mb-4 sm:mb-0"></div>
-        <div className="w-full sm:w-1/2 p-4">
+        <div className="w-full sm:w-1/2 mt-4 sm:mt-0">
+          <img src={group} alt="team" className="h-48 sm:h-auto w-full object-cover" />
+        </div>
+        <div className="w-full sm:w-1/2 p-8">
           <h1 className="text-2xl sm:text-4xl text-[#520982] font-bold font-hedvig mb-6">
             Housemates? Sick of moldy bread or milk disputes? We get it.
           </h1>
-          <h3 className="text-sm sm:text-base font-hostGrotesks">
+          <h3 className="text-xl font-hostGrotesks">
             Forgotten food goes bad, fridge space turns into a mystery, and no one knows what’s fair game. Our app keeps
             track of it all—so you can stop guessing and start sharing.
           </h3>
@@ -147,16 +152,18 @@ function App() {
 
       {/* Who We Are Section */}
       <div ref={anchor4} className="mt-8 bg-white text-black min-h-[60vh] p-6 sm:p-12 flex flex-col sm:flex-row justify-evenly">
-        <div className="w-full sm:w-1/2 p-4">
+        <div className="w-full sm:w-1/2 p-8">
           <h1 className="text-2xl sm:text-4xl text-[#520982] font-extrabold font-hedvig mb-6">Built by Students, for Students</h1>
-          <h3 className="text-sm sm:text-base font-hostGrotesks">
+          <h3 className="text-xl font-hostGrotesks">
             We’re four university students who’ve lived the shared-house struggle—expired yogurt, mystery leftovers, and
             the eternal ‘whose is this?’ debate. So, we made an app to fix it. From late-night coding sessions to testing
             with our own messy fridges, we’ve built something to help students like us save food, save money, and keep the
             peace with housemates.
           </h3>
         </div>
-        <div className="bg-blue-500 h-48 sm:h-auto w-full sm:w-1/2 mt-4 sm:mt-0"></div>
+        <div className="w-full sm:w-1/2 mt-4 sm:mt-0">
+          <img src={team} alt="team" className="h-48 sm:h-auto w-full object-cover" />
+        </div>
       </div>
 
       {/* Footer */}
