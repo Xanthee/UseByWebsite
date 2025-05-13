@@ -3,6 +3,15 @@ import React, { useRef, useState } from 'react';
 import logo from './assets/logo.png';
 import team from './assets/team.svg';
 import group from './assets/group.svg';
+import list from './assets/ListImg.PNG';
+import addItem from './assets/AddItemImg.PNG';
+import houses from './assets/Houses.png';
+import banner from './assets/banner.png';
+import addHouse from './assets/AddHouse.mp4';
+import addItemVid from './assets/AddItem.mp4';
+import setDate from './assets/SetDate.mp4';
+import share from './assets/Share.mp4';
+
 
 function App() {
   const anchor1 = useRef(null);
@@ -19,8 +28,8 @@ function App() {
   return (
     <div className="w-full flex flex-col h-full m-0 p-0 overflow-x-hidden">
       
-      {/* Navbar */}
-      <nav className="sticky top-0 text-white px-4 py-3 flex flex-col sm:flex-row sm:items-center z-50 bg-purple-600">
+    {/* Navbar */}
+      <nav className="fixed top-0 left-0 w-full text-purple-600 font-bold px-4 py-3 flex flex-col sm:flex-row sm:items-center z-50 bg-transparent">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-0 sm:w-1/4">UseBy</h1>
         <div className="flex flex-wrap justify-center sm:justify-end sm:w-3/4 gap-2 sm:gap-4">
           <button
@@ -42,7 +51,7 @@ function App() {
             How to Use
           </button>
           <button
-            className="text-xl sm:text-2xl md:text-3xls hover:scale-105 hover:text-purple-950 hover:-translate-y-1 transition-all duration-200 ease-in-out"
+            className="text-xl sm:text-2xl md:text-3xl hover:scale-105 hover:text-purple-950 hover:-translate-y-1 transition-all duration-200 ease-in-out"
             onClick={() => scrollToSection(anchor4)}
           >
             Who We Are
@@ -51,19 +60,18 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <div className="text-white px-4 sm:px-12 py-12 sm:pt-24 sm:pb-32 flex flex-col bg-purple-600 min-h-[60vh]">
+      <div className="text-purple-950 px-4 sm:px-12 pt-32 sm:pt-40 pb-12 sm:pb-32 flex flex-col min-h-[80vh] bg-cover bg-center" style={{ backgroundImage: `url(${banner})` }}>
         <h1 className="text-4xl sm:text-6xl font-bold font-hedveg mb-4">Keep It Fresh, Together</h1>
         <h2 className="text-xl sm:text-3xl font-light">Track and share food expiry dates effortlessly with your housemates.</h2>
         <div className="mt-8 flex flex-col sm:flex-row">
           <h4 className="font-light font-hedveg text-lg sm:text-xl">
             Download the app for free and start tracking your food now.
           </h4>
-          <h4 className="ml-0 sm:ml-1 mt-2 sm:mt-0 underline-animation font-light text-lg sm:text-xl text-white hover:font-bold transition-all duration-200 ease-in-out">
+          <h4 className="ml-0 sm:ml-1 mt-2 sm:mt-0 underline-animation font-light text-lg sm:text-xl text-purple-800 hover:font-bold transition-all duration-200 ease-in-out">
             It's only 1 click away.
           </h4>
         </div>
       </div>
-
       {/* Scroll Indicator */}
       <div className="flex justify-center items-center mt-4 w-screen">
         <button
@@ -107,18 +115,18 @@ function App() {
       {/* Solution Section */}
       <div ref={anchor2} className="flex flex-col sm:flex-row justify-evenly min-h-[80vh] p-6 sm:p-12 mb-8 gap-4">
         {[
-          { text: 'Track expiry dates with notifications.', image: '/path/to/image1.jpg' },
-          { text: 'Share lists with housemates.', image: '/path/to/image2.jpg' },
-          { text: 'Mark food as “up for grabs.”', image: '/path/to/image3.jpg' },
+          { text: 'Track expiry dates with notifications.', image: list },
+          { text: 'Share lists with housemates.', image: addItem },
+          { text: 'Mark food as “up for grabs.”', image: houses },
         ].map((item, index) => (
           <div
             key={index}
-            className="relative m-2 w-full sm:w-1/3 h-[400px] sm:h-[600px] bg-cover bg-center rounded-lg overflow-hidden"
+            className="relative m-2 w-full sm:w-1/4 h-[400px] sm:h-[600px] bg-no-repeat bg-center sm:bg-contain rounded-lg overflow-hidden"
             style={{ backgroundImage: `url(${item.image})` }}
           >
-            <div className="absolute inset-0 bg-black opacity-50"></div>
+            <div className="absolute inset-0 bg-black opacity-60"></div>
             <div className="relative z-10 flex flex-col items-start justify-end w-full h-full p-4 sm:p-6">
-              <h1 className="text-4xl sm:text-4xl font-semibold text-white leading-snug">{item.text}</h1>
+              <h1 className="text-4xl sm:text-5xl font-semibold text-purple-300 leading-snug">{item.text}</h1>
             </div>
           </div>
         ))}
@@ -141,13 +149,53 @@ function App() {
         ))}
       </div>
 
-      <div className="bg-gray-100 min-h-[40vh] flex items-center justify-center">
-        <span className="text-2xl sm:text-4xl font-bold text-[#520982]">
-          {currentStep === 1 && 'Add your food.'}
-          {currentStep === 2 && 'Set the date.'}
-          {currentStep === 3 && 'Share with mates.'}
-          {currentStep === 4 && 'Get notified.'}
+      <div className="bg-black min-h-[50vh] flex items-center justify-center">
+        <span className="text-2xl sm:text-4xl font-bold text-purple-300">
+          {currentStep === 1 && 'Create your house.'}
+          {currentStep === 2 && 'Find your product.'}
+          {currentStep === 3 && 'Set the date.'}
+          {currentStep === 4 && 'Share with housemates.'}
         </span>
+        {currentStep === 1 && (
+        <video
+          className="h-full max-w-md rounded-lg shadow-lg"
+          autoPlay
+          loop
+          muted
+          playsInline
+          src= {addHouse}
+        />
+      )}
+      {currentStep === 2 && (
+        <video
+          className="h-full max-w-md rounded-lg shadow-lg"
+          autoPlay
+          loop
+          muted
+          playsInline
+          src= {addItemVid}
+        />
+      )}
+      {currentStep === 3 && (
+        <video
+          className="h-full max-w-md rounded-lg shadow-lg"
+          autoPlay
+          loop
+          muted
+          playsInline
+          src= {setDate}
+        />
+      )}
+      {currentStep === 4 && (
+        <video
+          className="h-full max-w-md rounded-lg shadow-lg"
+          autoPlay
+          loop
+          muted
+          playsInline
+          src= {share}
+        />
+      )}
       </div>
 
       {/* Who We Are Section */}
